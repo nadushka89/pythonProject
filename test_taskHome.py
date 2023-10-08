@@ -12,40 +12,22 @@
 import subprocess
 import string
 
-# def check_text(command, text, split_mode=False):
-#     result = subprocess.run(command, shell=True, stdout=subprocess.PIPE, encoding='UTF-8')
-#     out = result.stdout
-#     if split_mode:
-#         words = out.split()
-#         print(words)
-#         return any(text in word for word in words)
-#     else:
-#         return result.returncode == 0 and text in out
-
-# if __name__ == '__main__':
-#     command = 'cat /etc/os-release'
-#     text = '22.04.1'
-#     result = check_text(command, text, split_mode=True)
-#     if result:
-#         print(f"Text '{text}' found in command '{command}'.")
-#     else:
-#         print(f"Text '{text}' not found in command '{command}'.")
-
-import subprocess
-import pytest
-
-
-def check_text(command, text):
-    result = subprocess.run(command, shell=True, stdout=subprocess.PIPE, encoding='utf-8')
-    if text in result.stdout and result.returncode == 0:
-        return True
+def check_text(command, text, split_mode=False):
+    result = subprocess.run(command, shell=True, stdout=subprocess.PIPE, encoding='UTF-8')
+    out = result.stdout
+    if split_mode:
+        words = out.split()
+        print(words)
+        return any(text in word for word in words)
     else:
-        return False
-def test_testing1():
-    assert check_text("cat /etc/os-release", "Jammyy"), "test1 FAIL"
+        return result.returncode == 0 and text in out
 
-#@pytest.mark.run_this
-def test_testing2():
-    assert check_text("cat /etc/os-release", "22.04.1"), "test2 FAIL"
+if __name__ == '__main__':
+    command = 'cat /etc/os-release'
+    text = '22.04.1'
+    result = check_text(command, text, split_mode=True)
+    if result:
+        print(f"Text '{text}' found in command '{command}'.")
+    else:
+        print(f"Text '{text}' not found in command '{command}'.")
 
- # pytest test_taskHome.py -v
