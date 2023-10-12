@@ -1,0 +1,4 @@
+folder_in: '/home/user/folder_in/'
+folder_out: '/home/user/folder_out/'
+folder_ext: '/home/user/folder_ext/'
+archive_type: '7z'
