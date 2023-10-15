@@ -1,0 +1,9 @@
+username: user2
+ssh_host: 0.0.0.0
+ssh_port: 22
+ssh_password: "1111"
+ssh_private_key_path: /path/to/your/private/key.pem
+p7zip_deb_local_path: tests/p7zip-full.deb
+p7zip_deb_remote_path: /home/user2/p7zip-full.deb
+
+
